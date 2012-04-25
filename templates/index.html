@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+    {% if ticket_index %}
+    <div class="test">
+        <div class="ticketswrapper">
+            {% for ticket in ticket_index %}
+                <div class="ticket">
+                    <a href="/tickets/{{ ticket.id }}/">
+                        {{ ticket.title }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+     </div>
+    {% else %}
+        <p> The world is perfect. No problems exist. </p>
+    {% endif %}
+{% endblock %}
