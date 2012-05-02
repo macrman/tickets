@@ -9,7 +9,7 @@ class ticket(models.Model):
     ranking = models.PositiveIntegerField()
 #tags
     ### pictures ###
-    picture = models.ImageField()
+#    picture = models.ImageField()
     ### Geo Stuff ###
 #    aprox_address = models.TextField()
 #    zip_code = models.PositiveIntegerField()
