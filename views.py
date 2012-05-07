@@ -1,5 +1,5 @@
-from tickets.models import ticket
-from django.forms.models import modelformset_factory
+from tickets.models import ticket, ticket_form
+from django.views.generic import list_detail, create_update
 from django import forms
 from django.http import Http404, HttpResponse
 from django.shortcuts import render_to_response
@@ -23,19 +23,18 @@ def view_ticket(request, ticket_id):
         'desc': t.description,})
 
 def create_ticket(request):
-    TicketFormSet = modelformset_factory(ticket)
     if request.method == 'POST':
-        formset = TicketFormSet(request.POST)
-        if formset.is_valid():
-            formset.save()
+        form = ticket_form(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
     else:
-        formset = TicketFormSet()
-    return render_to_response("create_ticket.html", {
-        "formset": formset,
-    })
-        #urls
-#def edit_ticket(request):
+        form = ticket_form()
 
+    return render_to_response('create_ticket.html', {
+        'form': form,
+    })
+def edit_ticket(request):
+    return "hello world"
 
 
 

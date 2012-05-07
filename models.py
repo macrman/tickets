@@ -9,13 +9,10 @@ class ticket(models.Model):
     description = models.TextField()
     ranking = models.PositiveIntegerField()
 #tags
-    ### pictures ###
 #    picture = models.ImageField()
-    ### Geo Stuff ###
 #    aprox_address = models.TextField()
 #    zip_code = models.PositiveIntegerField()
 #    coordinates = models.TextField()
-    ### Gov stuff ###
 #    jurisdiction = models.TextField()
 #    official_recognition = models.BooleanField()
 #    bid = models.PositiveIntegerField()
@@ -24,3 +21,7 @@ class ticket(models.Model):
     def __unicode__(self):
         return self.title
 
+class ticket_form(ModelForm):
+    class Meta:
+        model = ticket
+        fields = ('title','description',)
