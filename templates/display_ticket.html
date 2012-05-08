@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block contents %}
+  {% if object %}
+    <h1>Ticket details</h1>
+        <ul>
+        <li>ID: {{ object.id }}</li>
+        <li>Description: {{ object.description }}</li>
+        <li>Rule text:{{ object.rule }}</li>
+        </ul>
+    ( <a href="{% url rule-modify object.id %}">modify</a> |
+      <a href="{% url rule-delete object.id %}">delete</a> )
+  {% else %}
+    <h1>List of all tickets</h1>
+    {% if object_list %}
+      <ul>
+        {% for ticket in object_list %}
+          <li>{{ ticket.title }} ( <a href="{% url rule-display rule.id %}">details</a> |
+                                       <a href="{% url rule-modify rule.id %}">modify</a> |
+                                       <a href="{% url rule-delete rule.id %}">delete</a> )</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      No rules defined yet.
+    {% endif %}
+  <h3><a href="{% url rule-add %}">Add new rule</a></h3>
+{% endif %}
+{% endblock %}

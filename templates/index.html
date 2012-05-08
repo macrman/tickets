@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block main %}
-    {% if ticket_index %}
+    {% if ticket_list %}
     <div class="test">
         <div class="ticketswrapper">
-            {% for ticket in ticket_index %}
+            {% for ticket in ticket_list %}
                 <div class="ticket">
                     <a href="/tickets/{{ ticket.id }}/">
                         {{ ticket.title }}

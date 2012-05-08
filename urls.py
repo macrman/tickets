@@ -1,19 +1,20 @@
 from django.conf.urls import patterns, include, url
-from tickets.views import *
+from django.views.generic import ListView, DetailView
+from tickets.models import ticket
 
-urlpatterns = patterns('tickets.views',
-    url(r'^$',
-        'index'),
-    url(r'^create/$',
-        'create_ticket'),
-    url(r'^(?P<ticket_id>\d+)/$',
-        'view_ticket'),
-    url(r'^(?P<ticket_id>\d+)/edit/$',
-        'edit_ticket'),
+
+
+urlpatterns = patterns('',
+    (r'^$',
+        ListView.as_view(
+        model=ticket,
+        template_name="index.html",
+        context_object_name="ticket_list",)),
+    (r'^(?P<pk>\d+)/$',
+        DetailView.as_view(
+        model = ticket,
+        template_name="view_ticket.html",
+        )),
+
+
 )
-
-
-rule_info = {
-    'queryset': ticket.objects.all(),
-    'template_name': 'display_rule.html',
-}
