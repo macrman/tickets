@@ -21,7 +21,4 @@ class ticket(models.Model):
     def __unicode__(self):
         return self.title
 
-class ticket_form(ModelForm):
-    class Meta:
-        model = ticket
-        fields = ('title','description',)
+
