@@ -6,9 +6,9 @@ Add Ticket
 
 {% block content %}
 <form method="post" action="">
-<table>
-    {{form}}
-</table>
+    <table>
+        {{form.as_table}}
+    </table>
 <input type="submit" value="Submit Form"/>
 </form>
 {% endblock %}
