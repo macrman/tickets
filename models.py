@@ -5,10 +5,11 @@ from django.forms import ModelForm
 class ticket(models.Model):
     title = models.CharField(max_length = 100)
     date_created = models.DateTimeField(auto_now_add=True)
-#    creator = models.ForeignKey(User)
     description = models.TextField()
-    ranking = models.PositiveIntegerField()
-#tags
+    ranking = models.PositiveIntegerField(default=0)
+
+#    tags
+#    creator = models.ForeignKey(User)
 #    picture = models.ImageField()
 #    aprox_address = models.TextField()
 #    zip_code = models.PositiveIntegerField()
