@@ -21,5 +21,6 @@ class create_ticket(CreateView):
     model = ticket
     form_class = ticket_form
     template_name = "create_ticket.html"
+    #redirect url
 
 
