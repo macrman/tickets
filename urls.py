@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from tickets.models import ticket
 from tickets.forms import ticket_form
-from tickets.views import ticket_list, ticket_detail, create_ticket
+from tickets.views import ticket_list, ticket_detail, create_ticket, thanks_view
 urlpatterns = patterns('',
     (r'^$',
         ticket_list.as_view()),
