@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from tickets.models import ticket
 from tickets.forms import ticket_form
-from tickets.views import ticket_list, ticket_detail, create_ticket, thanks_view
+from tickets.views import ticket_list, ticket_detail, create_ticket, thanks_view, update_ticket
 urlpatterns = patterns('',
     (r'^$',
         ticket_list.as_view()),
@@ -11,7 +11,6 @@ urlpatterns = patterns('',
         create_ticket.as_view()),
     (r'^thanks/$',
         thanks_view.as_view()),
+    (r'^(?P<pk>\d+)/update/$',
+        update_ticket.as_view()),
 )
-
-#edit_ticket
-
