@@ -9,6 +9,8 @@ urlpatterns = patterns('',
         ticket_detail.as_view()),
     (r'^create/$',
         create_ticket.as_view()),
+    (r'^thanks/$',
+        thanks_view.as_view()),
 )
 
 #edit_ticket
