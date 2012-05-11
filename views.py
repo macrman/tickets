@@ -13,14 +13,17 @@ class ticket_detail(DetailView):
     model = ticket
     template_name = "ticket_detail.html"
 
-#def create_ticket(request):
-#    helloworld = "weee"
-#    return render_to_response('create_ticket.html', {
-#        'helloworld': helloworld })
 class create_ticket(CreateView):
     model = ticket
     form_class = ticket_form
     template_name = "create_ticket.html"
-    #redirect url
+    success_url = "/thanks/"
+
+class update_ticket(UpdateView):
+    model = ticket
+    form_class = ticket_form
+    template_name = "create_ticket.html"
+    success_url = "/thanks/"
+    
 
 
